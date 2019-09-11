@@ -891,7 +891,7 @@ void read_config(char* file)
 
 void free_hci()
 {
-    char cmd[PATH_MAX];
+    char cmd[PATH_MAX * 2];
     int r;
 
     DEBUG("");
@@ -911,7 +911,7 @@ void free_hci()
 
 void attach_hci()
 {
-    char hci_execute[PATH_MAX];
+    char hci_execute[PATH_MAX * 2];
     int r;
 
     DEBUG("");
