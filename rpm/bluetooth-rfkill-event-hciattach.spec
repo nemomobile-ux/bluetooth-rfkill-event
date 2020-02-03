@@ -6,7 +6,7 @@ Release: 1
 License: GPLv2
 Source0: %{name}-%{version}.tar.bz2
 Requires: glib2
-Requires: bluez5-tools
+Requires: bluez5-tools-hciattach
 BuildRequires: bluez5-libs-devel
 BuildRequires: glib2-devel
 Provides:   bluetooth-rfkill-event
