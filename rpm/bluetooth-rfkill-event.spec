@@ -11,6 +11,7 @@ Requires: broadcom-bluetooth
 Requires: bluetooth-rfkill-event-configs
 BuildRequires: bluez-libs-devel
 BuildRequires: glib2-devel
+BuildRequires: systemd
 
 %description
 Bluetooth rfkill event daemon. Part of Intel Edison GPL/LGPL sources.
@@ -27,7 +28,7 @@ This package provides default configuration for bluetooth-rfkill-event
 %setup -q -n %{name}-%{version}/bluetooth-rfkill-event
 
 %build
-make
+%make_build
 
 %install
 rm -rf %{buildroot}
@@ -35,15 +36,11 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-# >> files
 %{_sbindir}/bluetooth_rfkill_event
-/%{_lib}/systemd/system/bluetooth-rfkill-event.service
-/%{_lib}/systemd/system/network.target.wants/bluetooth-rfkill-event.service
-# << files
+%{_unitdir}/bluetooth-rfkill-event.service
+%{_unitdir}/network.target.wants/bluetooth-rfkill-event.service
 
 %files configs-mer
 %defattr(-,root,root,-)
-# >> files configs-mer
 %dir %{_sysconfdir}/bluetooth-rfkill-event
 %{_sysconfdir}/sysconfig/bluetooth-rfkill-event
-# << files configs-mer
