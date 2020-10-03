@@ -32,7 +32,7 @@ This package provides default configuration for bluetooth-rfkill-event
 
 %install
 rm -rf %{buildroot}
-%make_install
+%make_install INSTALL_ROOT=%{buildroot}
 
 %files
 %defattr(-,root,root,-)

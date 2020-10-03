@@ -20,7 +20,7 @@ all: bluetooth_rfkill_event
 
 install:
 	mkdir -p $(INSTALL_ROOT)/usr/sbin
-	install bluetooth_rfkill_event $(INSTALL_ROOT)/usr/sbin
+	install -m 755 bluetooth_rfkill_event $(INSTALL_ROOT)/usr/sbin
 	mkdir -p $(INSTALL_ROOT)/usr/lib/systemd/system
 	install bluetooth-rfkill-event.service $(INSTALL_ROOT)/usr/lib/systemd/system
 	mkdir -p $(INSTALL_ROOT)/usr/lib/systemd/system/network.target.wants
